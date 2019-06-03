@@ -7,7 +7,7 @@ public class View {
         
         Livro livro1 = new Livro();
         livro1.NovoLivro();
-        livro1.AplicaDesconto(0.1);
+        
         livro1.MostraDetalhes();
         
     }

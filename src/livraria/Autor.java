@@ -9,6 +9,7 @@ public class Autor {
     
     Scanner read = new Scanner(System.in);
     
+    //Método construtor da classe
     void NovoAutor(){
         System.out.println("\nEntre com as informações do novo autor");
         System.out.print("Autor: ");
@@ -18,6 +19,7 @@ public class Autor {
         System.out.print("cpf: ");
         cpf = read.nextLine();
     }
+    //Imprime a classe autor
     void MostraAutor(){
         System.out.println("Mostra detalhes do autor.");
         System.out.println("Autor: " + nome);
