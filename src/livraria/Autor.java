@@ -3,12 +3,10 @@ package livraria;
 import java.util.Scanner;
 
 public class Autor {
-    private String nome;
-    private String email;
-    private String cpf;
-    
+    private String nome, email, cpf;
+
     Scanner read = new Scanner(System.in);
-    
+
     //Métodos getters e setters
     public String getnome(){ return this.nome; }
     public void setnome(String nome){ this.nome = nome; }
@@ -16,7 +14,7 @@ public class Autor {
     public void setemail(String email){ this.email = email; }
     public String getcpf(){ return this.cpf; }
     public void setcpf(String cpf){ this.cpf = cpf; }
-    
+
     //Método construtor da classe
     void NovoAutor(){
         System.out.println("\nEntre com as informações do novo autor");

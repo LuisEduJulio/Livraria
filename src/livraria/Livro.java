@@ -3,14 +3,15 @@ package livraria;
 import java.util.Scanner;
 
 public class Livro {
-    private String nome;
-    private String descricao;
+    private String nome, descricao, isbn;
     private double valor;
-    private String isbn;
-    
+    private boolean impresso;
+
+
     //Instâncias das classes
     Autor autor1 = new Autor();
     Scanner read = new Scanner(System.in);
+
     //Metodos getters e setters
     public String getnome(){ return this.nome; }
     public void setnome(String nome){ this.nome = nome; }
@@ -20,7 +21,11 @@ public class Livro {
     public void setvalor(double valor){ this.valor = valor; }
     public String getisbn(){ return this.isbn; }
     public void setisbn(String isbn){ this.isbn = isbn; }
-    
+    public boolean setimpresso(){ return this.impresso; }
+    public void getimpresso(boolean impresso){ this.impresso = impresso; }
+    public String setwaltermark(){ return this.waltermark; }
+    public String getWaltermark(String waltermark) { this.waltermark = waltermark; }
+
     //Metodo construtor da classe
     public void NovoLivro(){
         System.out.println("Entre com as informaões do novo livro");
@@ -33,7 +38,8 @@ public class Livro {
         System.out.print("ISBN: ");
         this.isbn = read.nextLine();
         autor1.NovoAutor();
-        
+        this.impresso = true;
+
     }
     //Retorna livro criado
     public Livro(){
@@ -51,12 +57,13 @@ public class Livro {
     public boolean AplicaDesconto(double porcentagem){
         if(porcentagem > 30){
             return false;
-        }
-        this.valor -= this.valor * porcentagem;
+        }else if(!this.impresso && porcentagem > 0.15){
+            return false;
+        }this.valor -= this.valor * porcentagem;
         return true;
     }
-    
-    //Imprimindo informações da classe 
+
+    //Imprimindo informações da classe
     public void MostraDetalhes(){
         String mensagem = "\nMostrando detalhes";
         System.out.println(mensagem);
@@ -64,6 +71,9 @@ public class Livro {
         System.out.println("Descrição: " + this.descricao);
         System.out.println("Preço : R$ " + RetornaValor());
         System.out.println("ISBN: " + this.isbn);
+        System.out.println("CAPA: " + this.impresso);
+
+
         //Desconto
         if(!AplicaDesconto(0.1)){
             System.out.println("Desconto não pode ser maior que 30%");
